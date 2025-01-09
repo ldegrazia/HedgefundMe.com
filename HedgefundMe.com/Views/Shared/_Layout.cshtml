@@ -1,0 +1,124 @@
+﻿ 
+@using HedgefundMe.com
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>@ViewBag.Title</title>
+     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+     <meta name="description" content="Stock picking for the masses from HedgeFundMe.com">
+    <meta name="author" content="Louis De Grazia me at loudegrazia.com">
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("favicon.ico")" />          
+    <link rel="icon" type="image/png" href="@Url.Content("favicon.png")" />
+
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" media="screen"> 
+     
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+     
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation" style="background-color: #1b2e48; border-bottom: solid 1px #5C87B2; ">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/Home/Index">
+@if (!Request.IsAuthenticated)
+                {
+                <img src="~/images/logo.png" style="margin-top:-14px;margin-left:-10px;margin-bottom:-10px;margin-right:-10px;" height="45" width="200" title="Stock picking for the masses." alt="HedgeFundMe.com - Stock picking for the masses" />
+}
+            </a>
+        </div> 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+           @if (Request.IsAuthenticated)
+           { <ul class="nav navbar-nav">
+                <li><a style="padding: 6px; color: gold; font-size: 1.2em;" href="/Home/Index"><img src="~/images/home3.png" alt="Home" title="Home" />&nbsp;Home</a></li>
+                <li><a style="padding: 6px; color: gold; font-size: 1.2em;" href="/Blotter/Index"><img src="~/images/blotter.png" alt="Current Blotter" title="Current Blotter" />&nbsp;Blotter</a></li>
+                <li><a style="padding: 6px; color: gold; font-size: 1.2em;" href="/Blotter/Closed"><img src="~/images/todaystrades.png" alt="Closed Trades" title="Closed Trades" />&nbsp;Trades</a></li>                
+                <li><a style="padding: 6px; color: gold; font-size: 1.2em;" href="/TradeSignals/Index"><img src="~/images/signals.png" alt="Trading Signals" title="Trading Signals" />&nbsp;Signals</a></li>
+                <li><a style="padding: 6px; color: gold; font-size: 1.2em;" href="/MarketData/Ranks"><img src="~/images/star.png" alt="Today's Ranks" title="Today's Ranks" />&nbsp;Ranks</a></li>
+                <li><a style="padding: 6px; color: gold; font-size: 1.2em;" href="/Settings/Index"><img src="~/images/settings1.png" alt="Settings" title="Settings" />&nbsp;Settings</a></li>
+                 <li><a style="padding: 6px; color: gold; font-size: 1.2em;" href="/Home/SiteMap"><img src="~/images/sitemap.png" alt="Site Map" title="Site Map" />&nbsp;Site Map</a></li> 
+            </ul>
+        }
+            <ul class="nav navbar-nav navbar-right">
+               
+                
+                @if (Request.IsAuthenticated)
+                {
+
+                    <li> <a style="padding:3px;" href="/Account/MyAccount"><img class="img-thumbnail" src="@Url.Action("ProfileImage", "Account")" height="45" width="45" alt="@User.Identity.Name" title="Make changes to your @User.Identity.Name profile." /></a> </li>
+                 
+                }
+                else
+                {
+                    @:
+                    <li> <a style="padding:2px;" href="/Account/LogOn"><img height="45" width="45" src="@Url.Content("~/images/logon.png")" alt="Log on" title="Log on." /></a>  </li>
+
+                }
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+    <noscript>Your browser does not support JavaScript! Please turn on Javascript to see this site.</noscript>
+
+        <section id="main">
+            @RenderBody()
+        </section>
+         <footer>
+             <br />
+             <p>
+                 @Html.Raw(string.Format("{0} {1} {2}", "&copy;", DateTime.Now.Year, "HedgeFundMe.com, All Rights Reserved."))
+             </p>
+
+             @*<p>
+                 @Html.ActionLink("Terms of Service", "About", "Home") &middot; @Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Home")
+                 &middot; @Html.ActionLink("Contact Us", "Contact", "Home")
+             </p>*@
+@if (Request.IsAuthenticated)
+                {
+             <p>
+
+                 @Html.ActionLink("Blotter", "Index", "Blotter", null, new { title = "The Blotter is the running list of live open trades." }) &middot;
+
+
+                 @Html.ActionLink("Signals", "Index", "TradeSignals", null, new { title = "View the latest new trade signals." }) &middot;
+
+
+                 @Html.ActionLink("Trade History", "History", "TradeSignals", null, new { title = "View all trade signals acted on." })
+             </p>
+             <p>
+                 @Html.ActionLink("Trading Settings", "Index", "Settings", null, new { title = "View the current trading settings." }) &middot;
+
+                 @Html.ActionLink("Market Data", "Index", "MarketData", null, new { title = "View all market data." })   &middot;
+
+                 @Html.ActionLink("Site Map", "SiteMap", "Home")
+             </p>
+
+             <p>
+                 <a href="#">Back to top</a>
+             </p>
+}
+             <br />
+      </footer>
+
+   
+</body>
+</html>

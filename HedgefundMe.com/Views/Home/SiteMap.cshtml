@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Site Map";
+}
+
+<div class="container rounded"  >
+    <div class="row blue" >
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Site Map" alt="Site Map" src="@Url.Content("~/images/sitemap.png")" />
+            <h4> Site Map </h4>
+        </div>
+    </div> 
+    @*<div class="row">
+        <div class="col-md-12" style="padding: 18px; background-color: silver;">
+            <form class="form-inline" style="vertical-align:middle;" action="/Home/Search" method="post">
+                <strong> Enter a Ticker: </strong>
+                <input type="text" class="input" style="width:60px;" name="stock" id="stock" placeholder="TICKER">
+                
+                <button type="submit" style="vertical-align:middle;" class="btn btn-primary">GO</button>
+            </form>
+           
+        </div>
+        
+    </div>*@
+    <div class="row">
+        <div class="col-md-6"  >
+            <h4><img class="smallimg" title="Main Pages" alt="Main Pages" src="@Url.Content("~/images/web.png")" />&nbsp;Main Pages</h4>
+            @Html.ActionLink("Home", "Index", "Home") <br />
+            @Html.ActionLink("Blotter", "Index", "Blotter", null, new { title = "The Blotter is the running list of live open trades." }) <br />
+            @Html.ActionLink("Trading Settings", "Index", "Settings", null, new { title = "View the current trading settings." })<br />
+            @Html.ActionLink("Closed Trades", "Closed", "Blotter", null, new { title = "View the latest closed trades." })<br />
+            @Html.ActionLink("New Trade Signals", "Index", "TradeSignals", null, new { title = "View the latest new trade signals." })  <br />
+            
+             
+            <hr />
+        </div>
+        <div class="col-md-6"  >
+            <h4><img class="smallimg" title="Analysis" alt="Analysis" src="@Url.Content("~/images/blotter.png")" />&nbsp;Positions</h4>
+            @Html.ActionLink("Blotter", "Index", "Blotter", null, new { title = "The Blotter is the running list of live open trades." }) <br />
+            @Html.ActionLink("Trade History", "History", "Blotter", null, new { title = "View the running PnL of all trades we made and committed in the blotter." })  <br /> 
+            @Html.ActionLink("Market Data", "Index", "MarketData", null, new { title = "View all market data." }) <br />
+            @Html.ActionLink("Current Ranks", "Ranks", "MarketData", null, new { title = "View today's longs and shorts." })  
+            <br />
+            <br/>
+            <hr />
+</div>
+        
+    </div>
+    <div class="row">
+       
+         
+        <div class="col-md-6">
+            <h4><img title="Trade Signals" alt="Trade Signals" src="@Url.Content("~/images/signals.png")" />&nbsp;Trade Signals</h4>
+
+            @Html.ActionLink("New Trade Signals", "Index", "TradeSignals", null, new { title = "View the latest new trade signals." })  <br />
+            @Html.ActionLink("Trade Signal History", "History", "TradeSignals", null, new { title = "View all trade signals acted on." })<br />
+            <br /> 
+            <br />
+            <hr />
+        </div>
+        <div class="col-md-6">
+            <h4><img class="small" title="Trade API" alt="Trade API" src="@Url.Content("~/images/qubert.png")" />&nbsp;Trade API</h4>
+            @Html.ActionLink("Directory", "Index", "Api") <br />
+            @Html.ActionLink("Latest Long Trades", "LatestTrades", "Api")<br />
+            @Html.ActionLink("Latest Short Trades", "LatestShortTrades", "Api")<br />
+            @Html.ActionLink("Universe", "Universe", "Api", null, new { title = "View the universe of stocks." })
+             
+            <hr /> 
+
+        </div>
+    </div>
+    
+    <div class="row" style="padding-bottom:10px;">
+        <div class="col-md-6" >
+            <h4><img class="smallimg" title="User Profile" alt="User Profile" src="@Url.Content("~/images/users.png")" />&nbsp;Member Services</h4>  
+            @Html.ActionLink("Manage Profile", "MyAccount", "Account") <br />
+            @Html.ActionLink("Log On", "LogOn", "Account") <br />
+            @Html.ActionLink("Log Off", "LogOff", "Account") 
+            @Html.ActionLink("Change Your Password", "ChangePassword", "Account") <br />
+            @Html.ActionLink("Forgot Your Password", "ForgotPassword", "Account") <br />
+            <br />
+        </div>
+        <div class="col-md-6" >
+            <h4><img class="smallimg" title="Global Settings" alt="Global Settings" src="@Url.Content("~/images/sitesettings.png")" />&nbsp;Global Settings</h4>
+            @Html.ActionLink("Portofolio Lists", "Portfolios", "Settings", null, new { title = "Manage Portfolio Settings." })<br/>
+            @Html.ActionLink("Trading Settings", "Index", "Settings", null, new { title = "View the current trading settings." })<br />
+            @Html.ActionLink("View the Log", "ViewLog", "Admin")<br/>
+            @Html.ActionLink("Cancel Trades", "Cancel", "Settings")<br />
+            
+            <br />
+        </div>
+    </div>
+    
+</div>
+  

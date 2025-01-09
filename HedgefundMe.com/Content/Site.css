@@ -1,0 +1,335 @@
+﻿img.left {
+	float: left;
+	 
+}
+img.right {
+	float: right;
+	 padding-right:100px;
+}
+.small {
+    width: 30px;
+    height: 30px;
+    
+} 
+ 
+ .scandetails {width:250px; }
+ .cell-stock {width:100px;font-size:1.6em;text-align: center;color:gray; }
+ .cell-name{text-align:right;padding:3px;color:gray;  }
+ .cell-value{text-align:left;padding:3px;}
+.white {background-color:white;padding:6px;}
+.blue {background-color: #1b2e48; border-bottom: 1px solid #5C87B2;padding-top:3px;}
+.fill {width:100%;height:80px; text-align:center;}
+footer, 
+#footer {
+    min-height:100px;
+      text-align: center;
+      margin-top:30px;
+       padding-bottom:30px;
+      background-color:#1b2e48;
+      border-top: solid 1px #5C87B2; 
+       
+}
+#main {min-height:550px;}
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+ 
+.mediumtextarea 
+ {
+      border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+     color: #444;
+     height:  75px;
+     width: 245px;
+}
+ textarea {
+     height: 205px;
+     width: 305px;
+} 
+#search
+   {
+     border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1em;
+   color: #444;
+    width: 100px;
+}
+#pagenum
+   {
+     border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1em;
+     color: #444;
+    width: 30px;
+}
+  /* GOOGLE TABLE ELEMENTS   
+----------------------------------------------------------*/
+  .google-visualization-table-table 
+  {
+         color:#444 !important;
+         border: 1px solid #d8d8d8  !important;
+          margin:0px;padding:0px;
+	   background-color:white;
+  }
+.google-visualization-table-table tr:first-child td {
+    background: -o-linear-gradient(bottom, #000000 5%, #5b5a59 100%);
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #5b5a59) );
+    background: -moz-linear-gradient( center top, #000000 5%, #5b5a59 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#5b5a59");
+    background: -o-linear-gradient(top,#000000,5b5a59);
+    background-color: #000000;
+    border: 1px solid #d8d8d8;
+    text-align: center;
+    border-width: 1px 1px 1px 1px;
+    
+    color: #ffffff;
+}
+.google-visualization-table-table .google-visualization-table-td-number {text-align:right;}
+.google-visualization-table-table tr:nth-child(odd){ background-color:#f9f9f9; }
+.google-visualization-table-table tr:nth-child(even)    { background-color:#f9f9f9; }.google-visualization-table-table td{
+	vertical-align:middle;
+	border:1px solid #d8d8d8;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:3px;
+	color:#5b5a59;
+} 
+.google-visualization-table-table tr:first-child td{
+		background:-o-linear-gradient(bottom, #000000 5%, #5b5a59 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #5b5a59) );
+	background:-moz-linear-gradient( center top, #000000 5%, #5b5a59 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#5b5a59");	background: -o-linear-gradient(top,#000000,5b5a59);
+
+	background-color:#000000;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+  
+	color:#ffffff;
+}
+.google-visualization-table-table google-visualization-table-tr-head:hover {
+	background:-o-linear-gradient(bottom, #000000 5%, #5b5a59 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #5b5a59) );
+	background:-moz-linear-gradient( center top, #000000 5%, #5b5a59 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#5b5a59");	background: -o-linear-gradient(top,#000000,5b5a59);
+
+	background-color:#282828;
+}
+.google-visualization-table-table tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.google-visualization-table-table tr:first-child td:last-child{
+	border-width:0px 1px 1px 1px;
+} 
+  .google-visualization-table-td>a
+  {
+      color:#1288eb !important;
+  }
+  .google-visualization-atl.container
+  {
+      border:none !important;
+    
+  }
+  .google-visualization-atl .annotationsContainer .google-visualization-table-td 
+  {
+          background-color:white  !important;
+
+  }
+  .google-visualization-atl .annotationsContainer>div
+  {
+        margin:0em !important;
+  }
+   
+/* TABLE
+----------------------------------------------------------*/
+
+table {
+    border: solid 1px darkgray;
+    border-collapse: collapse;
+    background-color:black;
+    
+}
+
+table td {
+    padding: 2px;
+    border: solid 1px #212020;
+     
+}
+
+table th {
+    padding:2px 3px;
+    text-align: center;
+    background-color: darkgray;
+    border: solid 1px darkgray; 
+}
+/* MISC  
+----------------------------------------------------------*/
+.clear {
+    clear: both;
+} 
+.error {
+    color: Red;
+} 
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+ 
+.text-box.multi-line {
+    height: 6.5em;
+}
+
+.tri-state {
+    width: 6em;
+}
+.emailpreview 
+{
+    width: 600px;
+    padding:20px;
+    border:1px solid #444;
+    background-color:#666;
+    color:white; 
+}
+.result
+{
+    font-weight:bold;
+    color:#444;
+    
+}
+/** Password strength indicators 
+----------------------------------------------------------*/
+.testresult { padding: 0.5em 0.5em 0.5em 0.5em;}
+.testresult.shortPass,.testresult.badPass { color: red;}
+.testresult.goodPass { color: #0ACF00;}
+.testresult.strongPass { color: #078600;}
+.hidden { display:none;}
+ .details {    min-width:320px;
+}
+.detailspoint { 
+ 
+  float:left; 
+  width:94%;
+  padding:20px;
+  border:1px dotted #979899; 
+      
+} 
+ 
+.heatmappoint2 { 
+ 
+ text-align:left;
+      border: dotted 1px #5C87B2; 
+      float: left; 
+      padding-left:3px; 
+      margin:1px;
+      width:160px;
+      height:165px;  
+   color:white;
+      
+}
+/*.heatmappoint2 a:link,.heatmappoint2 a:visited,.heatmappoint2 a:active { color:white;}*/
+  
+   .gain {
+    min-width:70px;
+      text-align:right;
+}
+     .overallgain {
+         min-width:80px;
+            text-align:right;
+     }
+ 
+.rounded {
+   -webkit-border-radius:5px;
+     -moz-border-radius:5px;
+          border-radius:5px;
+          border:1px solid #5C87B2;
+          margin-bottom:10px;
+} 
+.smallimg {
+    height:35px;
+}
+.number {
+    text-align:right;
+}
+.action {
+    text-align:center;
+}
+.detailcell {
+    text-align:left;
+}
+.opinion {
+    text-align:left;
+     width:60px;
+    font-size:0.8em;
+    vertical-align:top;
+}
+.scancolumn
+{
+    width:60px;
+    font-size:0.8em;
+    vertical-align:top;
+}
+.scanHeader
+{
+    width:60px;
+    text-align:center;
+     font-size:0.8em;
+     vertical-align:top;
+}
+.scandiv {
+    background-color: white;
+    text-align: center;
+    border: solid 1px gray;
+    float: left;
+    padding: 2px;
+    margin: 2px;
+    width: 145px;
+    height:145px;
+}
+.adddropdiv { 
+    text-align: center;
+    border: solid 1px gray;
+    float: left;
+    padding: 2px;
+    margin: 2px;
+    width:90px;
+    height:100px;
+}
+.rankdiv {
+    background-color:#222;
+    color:white;
+      text-align: left;
+    border: solid 1px gray;
+    float: left; 
+    margin: 2px;
+    min-width:340px;
+    height:165px;
+
+}
+.screendiv {
+     background-color: white;
+    text-align: center;
+    border: solid 1px gray;
+    float: left;
+    padding: 2px;
+    margin: 2px;
+    width:215px;
+    height:135px;
+
+}

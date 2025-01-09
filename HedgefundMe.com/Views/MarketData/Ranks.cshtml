@@ -1,0 +1,230 @@
+﻿@model  HedgefundMe.com.ViewModels.MarketDataViewModel
+@using HedgefundMe.com;
+@{
+    ViewBag.Title = "Ranks";
+}
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Welcome" alt="Welcome" src="@Url.Content("~/images/star.png")" />
+            <h4>&nbsp;&nbsp;Ranks</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="color:white">
+            <p>
+                @Html.ActionLink("View All Market Data", "Index", "MarketData") | @Html.ActionLink("Refresh Prices", "Refresh", "MarketData")
+            </p>
+            <p>
+                @ViewBag.Result
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="color:white">
+            <h4> Longs (@Model.Longs.Count()) for @Model.LatestDataDate.ToShortDateString()</h4>
+
+            <div class="table-responsive">
+
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>
+                            Rank
+                        </th>
+                        <th>
+                            Chng
+                        </th>
+                        <th>
+                            Ticker
+                        </th>
+
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Price Chng
+                        </th>
+                        <th>
+                            Chng Pcnt
+                        </th>
+                        <th>
+                            Volume
+                        </th>
+                        <th>
+                            Avg Vol
+                        </th>
+                        <th>
+                            Vol %
+                        </th>
+                        <th>
+                            Day High
+                        </th>
+                        <th>
+                            Day Low
+                        </th>
+                        <th>
+                            Year High
+                        </th>
+                        <th>
+                            Year Low
+                        </th>
+                       
+
+                    </tr>
+
+                    @foreach (var item in Model.Longs)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CurrentRank)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RankChange)
+                        </td>
+                        <td>
+                            <a href="http://finance.yahoo.com/q/ta?s=@item.Ticker@FinanceHelper.Indicators3m">@item.Ticker</a>
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PriceChange)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PriceChangePcnt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Volume)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AvgVol)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VolumeChange)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DayHigh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DayLow)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YearHigh)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YearLow)
+                        </td>
+                       
+
+                    </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-md-12">
+                
+                    <h4>
+                        Shorts  (@Model.Shorts.Count()) for @Model.LatestDataDate.ToShortDateString()
+                    </h4>
+                <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+        <tr>
+            <th>
+                Rank
+            </th>
+            <th>
+                Chng
+            </th>
+            <th>
+                Ticker
+            </th>
+
+            <th>
+                Price
+            </th>
+            <th>
+                Price Chng
+            </th>
+            <th>
+                Chng Pcnt
+            </th>
+            <th>
+                Volume
+            </th>
+            <th>
+                Avg Vol
+            </th>
+            <th>
+                Vol %
+            </th>
+            <th>
+                Day Low
+            </th>
+            <th>
+                Day High
+            </th>
+            <th>
+                Year Low
+            </th>
+            <th>
+                Year High
+            </th>
+ 
+        </tr>
+
+        @foreach (var item in Model.Shorts)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentRank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RankChange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticker)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceChange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceChangePcnt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Volume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvgVol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VolumeChange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DayLow)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DayHigh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearLow)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearHigh)
+                </td>
+                 
+            </tr>
+        }
+
+    </table>
+                </div>
+
+            </div>
+        </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@using HedgefundMe.com
+@model HedgefundMe.com.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log On";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<div class="container rounded" style="margin-bottom:10px;">
+    <div class="row" style="background-color: #1b2e48; ">
+        <div class="col-sm-12" style="color:white;">
+            <h2>Login To Your Account</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            @using (Html.BeginForm("LogOn", "Account",new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+               
+                <br />
+                @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+                    <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="UserName">Email (Or User Name):</label>
+                    <div class="controls">
+                        @Html.TextBoxFor(m => m.UserName)<br/>
+                        @Html.ValidationMessageFor(m => m.UserName)
+
+                    </div>
+                </div>
+                 <!-- Password input-->
+                <div class="control-group">
+                    <label class="control-label" for="Password">Password:</label>
+                    <div class="controls">
+                        @Html.PasswordFor(m => m.Password)<br/>
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+               <!-- Multiple Checkboxes (inline) -->
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox inline" for="RememberMe">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </label>
+                    </div>
+                </div>
+ <!-- Button -->
+                <div class="control-group">
+                    <label class="control-label" for="submit"> </label>
+                    <div class="controls">
+                        <button id="submit" name="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+                <br /> 
+              @Html.ActionLink("Forgot Password?", "ForgotPassword") 
+
+            }
+
+</div>
+        <div class="col-md-6">
+            @*<img src="~/images/rankings.png" alt="Today's Special" title="Today's Special" />
+            Special Introductory Rate
+            <img src="~/images/rankings.png" alt="Today's Special" title="Today's Special" />
+
+            <h2><span style="color:green">@Constants.SubscriptionCost </span></h2>
+            
+            <ul>
+                <li>Access to all services on the site at all times. </li>
+                <li>Subscription access to Long and Short newsletters.</li>
+                <li>Hourly picks for longs and shorts during the trading day.</li>
+                <li>Free Trial Period of 30 days.</li>
+                <li>You can cancel your membership at anytime.</li>
+                <li>We do not sell your information to anyone.</li> 
+            </ul>
+            <p>
+                @Html.ActionLink("Join Today!", "AccountRequest", "Account", null, new { @class = "btn btn-default" })
+            </p>*@
+        </div>
+</div>
+</div>

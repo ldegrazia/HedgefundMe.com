@@ -1,0 +1,27 @@
+12:36:11 PM,Tuesday, September 09, 2014,Information,LONG TRADE SIGNALS FOR 9/9/2014 sent to me@loudegrazia.com
+12:36:13 PM,Tuesday, September 09, 2014,Error,Send email failed:Failure sending mail.
+12:36:13 PM,Tuesday, September 09, 2014,Information,SHORT TRADE SIGNALS FOR 9/9/2014 sent to me@loudegrazia.com
+12:36:15 PM,Tuesday, September 09, 2014,Error,Send email failed:Failure sending mail.
+12:38:41 PM,Tuesday, September 09, 2014,Information,LONG TRADE SIGNALS FOR 9/9/2014 sent to me@loudegrazia.com
+12:38:43 PM,Tuesday, September 09, 2014,Error,Send email failed:Failure sending mail.
+12:38:43 PM,Tuesday, September 09, 2014,Information,SHORT TRADE SIGNALS FOR 9/9/2014 sent to me@loudegrazia.com
+12:38:46 PM,Tuesday, September 09, 2014,Error,Send email failed:Failure sending mail.
+1:03:19 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:03:19 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:03:42 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:03:42 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:04:13 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:04:13 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:04:57 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:04:57 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:05:35 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:05:35 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:05:57 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:05:57 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:20:18 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:20:18 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:20:22 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:20:27 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:20:27 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+1:20:54 PM,Tuesday, September 09, 2014,Error,Couldn't get latest pricing audit:The cast to value type 'DateTime' failed because the materialized value is null. Either the result type's generic parameter or the query must use a nullable type.
+2:48:43 PM,Tuesday, September 09, 2014,Error,Could not get close price for ONVO

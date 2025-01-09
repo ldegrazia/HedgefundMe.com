@@ -1,0 +1,26 @@
+﻿@model HedgefundMe.com.Models.User
+
+@{
+    ViewBag.Title = "Success!";
+}
+
+<div class="container rounded" style="margin-bottom:10px;">
+    <div class="row" style="background-color: #1b2e48; ">
+        <div class="col-sm-12" style="color:white;">
+            <h3>Welcome @Html.DisplayFor(model => model.FirstName)</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <p>
+                You have successfully subscribed to HedgeFundMe.com.
+                 You will receive a welcome email with your account details. 
+               We thank you for your business.<br />
+                You can see the details of your account on the @Html.ActionLink("My Account", "MyAccount", "Account"); Page.<br/>
+
+            </p>
+        </div>
+    </div>
+</div>
+
+  

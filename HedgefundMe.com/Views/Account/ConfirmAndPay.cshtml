@@ -1,0 +1,85 @@
+﻿@using HedgefundMe.com
+@using paycircuit.com.google.iap;
+@model HedgefundMe.com.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Confirm And Pay";
+}
+<script src="https://sandbox.google.com/checkout/inapp/lib/buy.js"></script>
+ 
+<script type="text/javascript"> 
+       function purchase(callback) {
+           google.payments.inapp.buy({
+               "parameters": {},
+               "jwt": "@ViewBag.Jwt",
+               "success": function (result) {
+                   if (typeof callback === "function") {
+                       callback(true, result);
+                   }
+               },
+               "failure": function (result) {
+                   if (typeof callback === "function") {
+                       callback(false, result);
+                   }
+               }
+           }
+       )
+       };
+    var parseResult = function (isgood, data) {
+        var _console = (typeof window.console === "undefined");
+        if (isgood) {
+            var _str = "Verify Order No. " + data.response.orderId;
+            _str += "\nDetails:\n";
+            _str += data.request.name + " " + data.request.description + "\n";
+            (data.request.price) ? _str += data.request.price + "\n" : _str += "Subscription payment: " + data.request.initialPayment.price + " monthly: " + data.request.recurrence.price + " for " + data.request.recurrence.numRecurrences + " months\n";
+            alert(_str);
+            if (!_console) {
+                console.log(data);
+            }
+            //redirect to a place that will match them up with the id
+            window.location = "http://www.hedgefundme.com/Account/Success";
+        } else {
+            alert("failed");
+            if (!_console) {
+                console.log(data);
+            }
+        }
+    };
+</script>
+<div class="container rounded" style="margin-bottom:10px;">
+    <div class="row" style="background-color: #1b2e48; ">
+        <div class="col-sm-12" style="color:white;">
+            <h3>Confirm and Pay</h3>
+        </div>
+    </div>
+    <div class="row white">
+
+        <div class="col-sm-12" style="padding:20px;">
+            <p>
+                  You are registering an account for HedgeFundMe with the following terms:
+            </p>
+            <strong>Account details:</strong>
+
+            <!-- Text input-->
+            <div class="control-group">
+                <label class="control-label" for="UserName">User Name: </label> @Html.DisplayFor(model => model.UserName)
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="Email">Email: </label> @Html.DisplayFor(model => model.Email)
+            </div>
+            <img src="~/images/rankings.png" alt="Today's Special" title="Today's Special" />
+            Only <span style="color:green">@Constants.SubscriptionCost. </span>
+            <img src="~/images/rankings.png" alt="Today's Special" title="Today's Special" />
+            <ul>
+                <li>There is a Free Trial Period of 30 days.</li>
+                <li>You can cancel your membership at anytime.</li>
+                <li>We do not sell your information to anyone.</li>
+                <li>You will receive a welcome email with your account details.</li>
+                <li>You agree to our Terms of Service</li>
+                <li>To complete your secure checkout using PayPal, Debit or Credit Card, please click Subscribe. </li>
+                <li>Still have questions? @Html.ActionLink("Contact us.", "Contact", "Home")</li>
+            </ul> 
+            <input id="bar" type="button" onclick="purchase(parseResult);" value="Subscribe!" style="padding: 5px;" />
+        </div>
+    </div>
+</div>

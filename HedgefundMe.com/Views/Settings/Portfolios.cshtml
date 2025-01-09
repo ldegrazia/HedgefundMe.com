@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HedgefundMe.com.Models.PortfolioEntry>
+
+@{
+    ViewBag.Title = "Portfolios";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Edit Trading Setting" alt="Edit Trading Setting" src="@Url.Content("~/images/tools.png")" />
+            <h4>&nbsp;&nbsp;Portfolios</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <br/>
+            <p>
+                <a href="/Settings/CreatePortfolio" class="btn btn-success">Create Portfolio</a>
+            </p>
+            
+        </div>
+    </div>
+    @foreach (var item in Model)
+                {
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="control-group">
+                    <div class="editor-label">
+                        
+                       <h4> @Html.DisplayFor(modelItem => item.Name)</h4>
+                    </div>
+
+                </div>
+                <div class="control-group">
+                    <div class="editor-label">
+                    </div>
+                    <h5> @Html.DisplayFor(modelItem => item.Url)</h5>
+</div>
+                
+                @Html.ActionLink("Edit", "EditPortfolio", new { id = item.ID })
+
+                <hr />
+               
+
+            </div>
+            
+        </div>
+        
+    }
+    </div>

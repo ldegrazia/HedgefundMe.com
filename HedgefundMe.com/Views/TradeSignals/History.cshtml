@@ -1,0 +1,117 @@
+﻿@model HedgefundMe.com.ViewModels.TradeSignalViewModel
+@using HedgefundMe.com.Models
+@using PagedList.Mvc
+@using HedgefundMe.com
+@{
+    ViewBag.Title = "Trade Signal History";
+}
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Welcome" alt="Welcome" src="@Url.Content("~/images/todaystrades.png")" />
+            <h4>&nbsp;&nbsp;Trade Signal History</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <p>
+                Signals ran by @Model.LastSignalFetch.LastSignalFetchBy at @Model.LastSignalFetch.SignalFetchDateEasterTime()
+                
+            </p>
+            <p>
+                The Historical Trade Signal Table is a list of trade signals the blotter acted on.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>All Signals</h4>
+            <p>
+                @Html.PagedListPager(Model.HistoricalData, page => Url.Action("History", new { page }))
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>
+                            Ticker
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Stop
+                        </th>
+                        <th>
+                            Target
+                        </th>
+                        <th>
+                            Shares
+                        </th>
+                        <th>
+                            Value
+                        </th>
+                        <th>
+                            Details
+                        </th>
+                       
+
+                    </tr>
+
+                    @foreach (var item in Model.HistoricalData)
+{
+    <tr style="color:@FinanceHelper.GetColor(item.Details) !important">
+        <td>
+            <a href="/Blotter/SignalDetails?id=@item.TradeId" title="Click for trade details">@item.Ticker</a>
+             
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Action)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @DateHelper.ToEasternStandardTime(item.Date).ToString("MM/dd/yyyy hh:mm tt")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StopPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TargetPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shares)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+
+    </tr>
+}
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>All Signals</h4>
+            <p>
+                @Html.PagedListPager(Model.HistoricalData, page => Url.Action("History", new { page }))
+            </p>
+        </div>
+    </div>
+</div>

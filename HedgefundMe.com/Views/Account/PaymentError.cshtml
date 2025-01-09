@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Payment Error";
+}
+
+<div class="container rounded" style="margin-bottom:10px;">
+    <div class="row" style="background-color: #1b2e48; ">
+        <div class="col-sm-12" style="color:white;">
+            <h3>Oops - Payment Error</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="padding:20px;">
+            <p>
+               We apologize, but something went wrong with your Registration and Payment.
+                <p>
+                    <p> You can try again and @Html.ActionLink("register here", "Register", "Account"). 
+              
+            </p>
+            <p>
+                If you are having problems, please @Html.ActionLink("Contact Us", "Contact", "Home").
+            </p>
+</div>
+</div>
+</div>

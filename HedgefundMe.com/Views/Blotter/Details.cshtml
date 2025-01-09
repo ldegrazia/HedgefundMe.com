@@ -1,0 +1,22 @@
+﻿@model HedgefundMe.com.ViewModels.TradeHistoryViewModel
+@using HedgefundMe.com.Models
+@using HedgefundMe.com;
+@{
+    ViewBag.Title = "Trade Details";
+}
+
+<div class="container rounded">
+    <div class="row">
+        <div class="col-md-12">
+
+            @Html.Partial("_TradeHistoryDetails", Model.TradeEntryDetails)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Trade Signal History</h2>
+
+            @Html.Partial("_TradeSignalHistoryDetails", Model.TradeSignalDetails)
+        </div>
+    </div>
+</div>

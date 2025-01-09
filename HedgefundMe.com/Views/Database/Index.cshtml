@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "Data Management";
+}
+<div class="container rounded" style="margin-bottom:10px;">
+    <div class="row " style="background-color: #1b2e48; border-bottom: 1px solid #5C87B2;">
+        <div class="col-sm-12" style="color:white">
+            <img class="pull-left smallimg" title="New Price Highs" alt="New Price Highs" src="@Url.Content("~/images/chart3.png")" />
+            <h4>Data Management</h4>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            <p>@Html.Raw(ViewBag.Results)</p>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            <h2>Market Data</h2>
+            <p>
+                The Market Data is the universe of stocks.
+            </p>
+            <ul>
+                <li>@Html.ActionLink("View the Log", "ViewLog", "Admin")- View the log. </li>
+                <li>@Html.ActionLink("View All Market Data", "Index", "MarketData") - View all market data.</li>
+                <li>@Html.ActionLink("View Current Ranks", "Ranks", "MarketData") - View today's market data.</li>
+                <li>@Html.ActionLink("Reload Todays Market Data", "LoadData", "MarketData") - Reload today's data.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            <h2>Blotter</h2>
+            <p>
+                The Blotter is the running list of live open trades.
+            </p>
+            <ul>
+                <li>@Html.ActionLink("View The Blotter", "Index", "Blotter")- View the latest blotter status.</li>
+                <li>@Html.ActionLink("Refresh Prices", "RefreshAsync", "Blotter") - Update the current prices in the blotter.</li>
+                <li>@Html.ActionLink("Run New Trades", "Run", "Blotter") - Fetches new trades again for the current market time and updates the blotter.</li>
+                <li>@Html.ActionLink("EOD CLOSE", "CloseOutPositions", "Blotter") - Closes out all open positions for the day, then clears the blotter.</li>
+
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Trade History</h2>
+            <p>
+                The Trade History is the running PnL of all trades we made and committed in the blotter.
+            </p>
+            <ul>
+                <li>@Html.ActionLink("View The Trade History", "History", "Blotter") - View the running PnL of all trades we made and committed in the blotter.</li>
+                <li>@Html.ActionLink("Close Out TradeHistory Positions", "CloseOutTradeHistoryPositions", "Blotter") - Close out all open positions in the Trade History but leaves the blotter.</li>
+                <li>@Html.ActionLink("Update Closed Trade Values", "UpdateClosedValues", "Blotter") - Update the closed trades with no values. </li>
+                <li>@Html.ActionLink("Clear Blotter", "ClearAllTrades", "Blotter") - Clears the blotter <em>CAREFUL</em>.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>New Trade Signals</h2>
+            <p>
+                The New Trade Signal table is the latest list of live trades the blotter made.
+            </p>
+            <ul>
+                <li>@Html.ActionLink("View New Trade Signals", "Index", "TradeSignals") - View the latest new trade signals.</li>
+                <li>@Html.ActionLink("Api/LatestTrades", "LatestTrades", "Api")- View the latest new Long trade signals as XML.</li>
+                <li>@Html.ActionLink("Api/LatestShortTrades", "LatestShortTrades", "Api") - View the latest new Short trade signals as XML.</li>
+                <li>@Html.ActionLink("Run Signals Again", "RunSignals", "TradeSignals") - Clear the new signals and get new signals again. </li>
+                <li>@Html.ActionLink("Clear New Trade Signals", "ClearNewTradeSignals", "TradeSignals") - Clear the latest trade signals <em>CAREFUL</em>.</li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Historical Trade Signals</h2>
+            <p>
+                The Historical Trade Signal Table is a list of trade signals the blotter acted on.
+            </p>
+            <ul>
+                <li>@Html.ActionLink("View Trade Signal History", "History", "TradeSignals") -View all trade signals acted on.</li>
+                <li>@Html.ActionLink("Clear Open Historical Trades", "ClearOpenHistoricalTrades", "TradeSignals") - Clear the open trades in the trade history.<em>CAREFUL</em>.</li>
+                <li>@Html.ActionLink("Reset All Open Trades", "ResetTodaysOpenData", "Blotter") - DELETES open trades in trade history and the blotter, clears new signals.<em>CAREFUL THIS STARTS OVER</em>.</li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Trade Mocking</h2>
+            <ul>
+                <li>@Html.ActionLink("Mock Trades For Testing", "MockTrades", "Database") - Create Mocked trades.</li>
+                <li>@Html.ActionLink("Delete Mocked Trades", "DeleteMockedTrades", "Database") - Delete all data Mocked.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+

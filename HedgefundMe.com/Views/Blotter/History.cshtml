@@ -1,0 +1,138 @@
+﻿@model HedgefundMe.com.ViewModels.TradeHistoryViewModel
+@using HedgefundMe.com.Models
+@using PagedList.Mvc
+@using HedgefundMe.com;
+@{
+    ViewBag.Title = "Trade History";
+}
+
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Current Blotter" alt="Current Blotter" src="@Url.Content("~/images/history.png")" />
+            <h4>&nbsp;&nbsp;Today's Trade History</h4>
+        </div>
+    </div>
+    <div class="row"> 
+        <div class="col-md-12"> 
+            <p>
+                The Trade History is the running PnL of all trades made today.
+            </p>
+            <p>
+                @Html.ActionLink("Open Trades", "Open", "Blotter", null, new { title = "View the history of open trades." }) |
+                @Html.ActionLink("Closed Trades", "Closed", "Blotter", null, new { title = "View the history of closed trades." }) |
+                @Html.ActionLink("All Trade History", "All", "Blotter", null, new { title = "View the history of all trades." }) 
+  
+            </p>
+        </div>
+    </div>
+     
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Todays Trades (@Model.TodaysTrades.Count())</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                    <tr> 
+                        <th>
+                            State
+                        </th>
+                        <th>
+                            Ticker
+                        </th> 
+                        <th>
+                            Open Action
+                        </th>
+                        <th>
+                            Shares
+                        </th>
+                        <th>
+                            Open Price
+                        </th>
+                        <th>
+                            Open 
+                        </th> 
+                        <th>
+                            Close Action
+                        </th>
+                        <th>
+                            Close Price
+                        </th>
+                        <th>
+                            Close 
+                        </th> 
+                        <th>
+                            Open Value
+                        </th>
+                        <th>
+                            Close Value
+                        </th>
+                        <th>
+                            Gain
+                        </th>
+                        <th>
+                            Gain Pct
+                        </th>
+                       
+
+                    </tr>
+
+                    @foreach (var item in Model.TodaysTrades)
+                        {
+                        <tr>
+                            <td>
+                                @item.Satus()
+                            </td>
+                             
+                            <td>
+                                <a href="Details?id=@item.ID" title="Click for trade details">@item.Ticker</a> 
+                            </td>
+                             
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OpenAction)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Shares)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OpenPrice)
+                            </td>
+                            <td>
+                                @DateHelper.ToEasternStandardTime(item.OpenDate).ToString("hh:mm tt")
+                            </td>
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CloseAction)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ClosePrice)
+                            </td>
+                            <td>
+                                @DateHelper.ToEasternStandardTime(item.CloseDate).ToString("hh:mm tt")
+                                
+                            </td>
+                           
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OpenValue)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CloseValue)
+                            </td>
+                           
+                            <td>
+                                <span style="color:@FinanceHelper.GetColor(item.GainLoss)">  @Html.DisplayFor(modelItem => item.GainLoss)</span>
+</td>
+                            <td>
+                                <span style="color:@FinanceHelper.GetColor(item.GainLossPct)"> @Html.DisplayFor(modelItem => item.GainLossPct)</span>
+</td>
+
+                        </tr>
+                        }
+
+                </table>
+            </div>
+        </div>
+    </div>
+     
+
+    </div>
+ 

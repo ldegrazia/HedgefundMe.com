@@ -1,0 +1,68 @@
+﻿@model HedgefundMe.com.Models.PortfolioEntry
+
+@{
+    ViewBag.Title = "Create Portfolio";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Create New Portfolio" alt="Create New Portfolio" src="@Url.Content("~/images/newsmall.png")" />
+            <h4>&nbsp;&nbsp;Create New Portfolio</h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            <p>
+                <h2><span class="result" style="background-color:yellow;">@ViewBag.Result</span></h2>
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered" style="color:darkgray;">
+                    @using (Html.BeginForm())
+                    {
+                        <tr>
+                            <td>
+                                @Html.AntiForgeryToken()
+                            </td>
+                            <td>@Html.ValidationSummary(true)</td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html.LabelFor(model => model.Name)</td>
+                            <td>
+                                @Html.EditorFor(model => model.Name)
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html.LabelFor(model => model.Url)</td>
+                            <td>
+                                <input name="Url" style="width:360px;" class="text-box single-line" id="Url" type="text" data-val-required="Url is required" data-val="true" value="@Model.Url" />
+
+                                @Html.ValidationMessageFor(model => model.Url)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" class="btn btn-success" value="Create" />
+                                <a href="/Settings/Portfolios" class="btn btn-warning">Back To List</a>
+                                <br />
+                                <br />
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+
+        </div>
+        </div>
+    </div>

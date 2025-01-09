@@ -1,0 +1,166 @@
+﻿@using HedgefundMe.com
+@model HedgefundMe.com.Models.AccountRequestModel
+
+@{
+    ViewBag.Title = "Account Request";
+}
+<div class="container rounded" style="margin-bottom:10px;">
+    <div class="row" style="background-color: #1b2e48; ">
+        <div class="col-sm-12" style="color:white;">
+            <h2>Cost of Membership</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2><span style="color:green">@Constants.SubscriptionCost </span></h2>
+            <p> 
+                <ul>
+                    <li>The current introductory rate is<b> @Constants.SubscriptionCost</b></li>
+                    <li>
+    <em>Your first 30 days are risk free. Cancel anytime during the first month for a full refund.</em>
+</li>
+                      <li>A paid account gets you access to all services on the site at all times. </li>
+                   
+                  
+                    <li><em>Cancel anytime.</em></li>
+                </ul> 
+                <b>We do not sell your information to anyone at anytime.</b>
+                
+
+            </p>
+            <p>
+                Still have questions? @Html.ActionLink("Contact us.", "Contact", "Home")
+            </p>
+
+            
+
+        </div>
+    </div>
+</div>
+<div class="container rounded" style="margin-bottom:10px;">
+    <div class="row" style="background-color: #1b2e48; ">
+        <div class="col-sm-12" style="color:white;">
+            <h2>Account Request</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <p>
+                Requesting an account is easy, but first, please take a moment to read our terms of service and privacy policy then fill out the form below.<br />
+                <ul>
+                    <li>@Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Home")</li>
+                    <li>@Html.ActionLink("Terms of Service", "About", "Home")</li>
+                </ul>
+                <em>Submitting the registration form means you agree to the terms of service.</em><br />
+               
+                </p>
+
+            @using (Html.BeginForm("AccountRequest", "Account", null, FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+ 
+                         <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="UserName">User Name:</label>
+
+                    <div class="controls">
+                        @Html.EditorFor(model => model.UserName)<br/>
+                        @Html.ValidationMessageFor(model => model.UserName)
+                        <p class="help-block">If the username you request is not available, a temporary user name will be provided.</p>
+                    </div>
+                </div>
+                         <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="FirstName">First Name:</label>
+                    <div class="controls">
+                        @Html.EditorFor(model => model.FirstName)<br/>
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                </div>
+                             <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="MiddleName">Middle Name (Optional):</label>
+
+                    <div class="controls">
+                        @Html.EditorFor(model => model.MiddleName)<br/>
+                        @Html.ValidationMessageFor(model => model.MiddleName)
+                    </div>
+                </div>
+                                 <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="LastName">LastName:</label>
+                    <div class="controls">
+                        @Html.EditorFor(model => model.LastName)<br/>
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                </div>
+             <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="StreetAddress1">Street Address 1:</label>
+                    <div class="controls">
+                        @Html.EditorFor(model => model.StreetAddress1)<br/>
+                        @Html.ValidationMessageFor(model => model.StreetAddress1)
+                    </div>
+                </div>
+      <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="StreetAddress2">Street Address 2 (Optional):</label>
+                    <div class="controls">
+                        @Html.EditorFor(model => model.StreetAddress2)<br/>
+                        @Html.ValidationMessageFor(model => model.StreetAddress2)
+                    </div>
+                </div>
+               <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="City">City:</label>
+                    <div class="controls">
+                        @Html.EditorFor(model => model.City)<br/>
+                        @Html.ValidationMessageFor(model => model.City)
+                    </div>
+                </div>
+     <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="State">State:</label>
+                    <div class="controls">
+                        @Html.EditorFor(model => model.State)<br/>
+                        @Html.ValidationMessageFor(model => model.State)
+                    </div>
+                </div>
+      <!-- Text input-->
+                <div class="control-group">
+                    <label class="control-label" for="Zip">Zip:</label>
+                    <div class="controls">
+                        @Html.EditorFor(model => model.Zip)<br/>
+                        @Html.ValidationMessageFor(model => model.Zip)
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="Email">Email:</label>
+                    <div class="controls">
+                        @Html.EditorFor(model => model.Email)<br/>
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="ConfirmEmail">Confirm Email:</label>
+                    <div class="controls">
+                        @Html.EditorFor(model => model.ConfirmEmail)<br/>
+                        @Html.ValidationMessageFor(model => model.ConfirmEmail)
+                    </div>
+                </div>
+      <!-- Button -->
+                <div class="control-group">
+                    <label class="control-label" for="submit"> </label>
+                    <div class="controls">
+                        <button id="submit" name="submit" class="btn btn-primary">Request Account</button>
+                    </div>
+                </div>
+                <br />
+
+            }
+        </div>
+    </div>
+</div>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>

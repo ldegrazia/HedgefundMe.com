@@ -1,0 +1,85 @@
+﻿@using HedgefundMe.com;
+@using HedgefundMe.com.Models;
+@using PagedList.Mvc;
+@model HedgefundMe.com.ViewModels.MarketDataViewModel
+@{
+    ViewBag.Title = "Market Data";
+}
+
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="All Market Data" alt="All Market Data" src="@Url.Content("~/images/chartts.png")" />
+            <h2>&nbsp;&nbsp;All Market Data</h2>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            <p>
+                @Html.ActionLink("Ranks", "Ranks", "MarketData") 
+            </p>
+           
+        </div>
+    </div> 
+
+    @if (Model.Data != null)
+    {
+        <div class="row">
+            <div class="col-sm-12" style="color:white">
+                
+                <h4>@Model.Data.TotalItemCount Records as of @Model.LatestDataDate.ToShortDateString()</h4>
+            </div>
+        </div>
+        if (!Model.Data.Any())
+        {
+            <text>
+                <div class="row" style="background-color: white; padding: 20px;">
+                    <b> No Data Returned.  .</b>
+                </div>
+            </text>
+        }
+        else
+        {
+            <div class="row">
+
+                <div class="col-md-12">
+                    @Html.PagedListPager(Model.Data, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+            foreach (var p in Model.Data)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <b>@Html.DisplayFor(m => p.Ticker)</b>&nbsp;
+                        Rank: @Html.DisplayFor(m => p.CurrentRank) (@Html.DisplayFor(m => p.RankChange)) on @p.Date.ToLongDateString()<br/>
+                        Price: @Html.DisplayFor(m => p.Price) &nbsp;
+                        @Html.DisplayFor(m => @p.PriceChange) &nbsp;
+                        (@Html.DisplayFor(m => p.PriceChangePcnt)) <br />
+                        Volume: @Html.DisplayFor(m => p.Volume) &nbsp;
+                        AvgVol: @Html.DisplayFor(m => @p.AvgVol) &nbsp;
+                        (@Html.DisplayFor(m => p.VolumeChange)) 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="img-responsive" src="http://ichart.finance.yahoo.com/z?@FinanceHelper.Indicators6ms&s=@p.Ticker" alt="@p.Ticker 6m" />
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <a href="http://finance.yahoo.com/mb/@p.Ticker">Message Boards</a> |
+                        <a href="http://stockcharts.com/freecharts/gallery.html?s=@p.Ticker">Stockcharts.com</a> |
+                        <a href="http://finance.yahoo.com/q/ta?s=@p.Ticker@FinanceHelper.Indicators3m">More...</a>
+                        <p class="pull-right"> <a href="#">Back to top</a></p>
+                        <br /><br />
+                    </div>
+                </div>
+            }
+        }
+        @Html.PagedListPager(Model.Data, page => Url.Action("Index", new { page }))
+
+    }
+</div>

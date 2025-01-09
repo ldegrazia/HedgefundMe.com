@@ -1,0 +1,17 @@
+﻿@model string
+@using HedgefundMe.com; 
+@{if (Model.ToString() == HedgefundMe.com.Strings.Opinions.Buy)
+{
+    <img class="smallimg" title="Buy" alt="Buy" src="@Url.Content("~/images/buy.png")" />
+}
+  else if (Model.ToString() == HedgefundMe.com.Strings.Opinions.Sell)
+{
+    <img class="smallimg" title="Sell" alt="Sell" src="@Url.Content("~/images/warning.png")" />
+}
+  else if (Model.ToString() == HedgefundMe.com.Strings.Opinions.SellStop)
+  {
+    <img class="smallimg" title="Stopped Out" alt="Stopped Out" src="@Url.Content("~/images/stoppedout.png")" />
+  }
+
+
+} 

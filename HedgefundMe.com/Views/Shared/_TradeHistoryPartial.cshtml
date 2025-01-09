@@ -1,0 +1,119 @@
+﻿@model HedgefundMe.com.ViewModels.TradeHistoryViewModel
+@using HedgefundMe.com.Models
+@using HedgefundMe.com;
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+        <tr>
+
+            <th>
+                Ticker
+            </th>
+            <th>
+                Opened
+            </th>
+            <th>
+                Qty
+            </th>
+            <th>
+                $ Open
+            </th>
+            <th>
+               Time
+            </th>
+            <th>
+                Closed  
+            </th>
+            <th>
+                $ Closed
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                Open Value
+            </th>
+            <th>
+                Close Value
+            </th>
+            <th>
+                Gain
+            </th>
+            <th>
+                %
+            </th>
+
+
+        </tr>
+
+        @foreach (var item in Model.TodaysTrades)
+{
+    <tr style="color:@FinanceHelper.GetColor(item.GainLoss) !important">
+        <td>
+            <a href="Details?id=@item.ID" title="Click for trade details">@item.Ticker</a>
+        </td>
+
+        <td>
+            <span style="font-size:1.2em;font-weight:bold;color:@FinanceHelper.GetColor(item.GainLoss)">   @Html.DisplayFor(modelItem => item.OpenAction)</span>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shares)
+        </td>
+        <td class="number">
+            @Html.DisplayFor(modelItem => item.OpenPrice)
+        </td>
+        <td>
+            @DateHelper.ToEasternStandardTime(item.OpenDate).ToString("hh:mm tt")
+        </td>
+
+        <td>
+            <span style="font-size:1.2em;font-weight:bold;color:@FinanceHelper.GetColor(item.GainLoss)">
+                @Html.DisplayFor(modelItem => item.CloseAction)
+            </span>
+        </td>
+        <td class="number">
+            <span style="font-size:1.2em;font-weight:bold;color:@FinanceHelper.GetColor(item.GainLoss)">   @Html.DisplayFor(modelItem => item.ClosePrice)</span>
+        </td>
+        <td>
+            @DateHelper.ToEasternStandardTime(item.CloseDate).ToString("hh:mm tt")
+
+        </td>
+
+        <td class="number">
+            @Html.DisplayFor(modelItem => item.OpenValue)
+        </td>
+        <td class="number">
+            @Html.DisplayFor(modelItem => item.CloseValue)
+        </td>
+
+        <td class="number">
+            <span style="font-size:1.2em;font-weight:bold;color:@FinanceHelper.GetColor(item.GainLoss)">  @Html.DisplayFor(modelItem => item.GainLoss)</span>
+        </td>
+        <td class="number">
+            <span style="font-size:1.2em;font-weight:bold;color:@FinanceHelper.GetColor(item.GainLossPct)"> @Html.DisplayFor(modelItem => item.GainLossPct)</span>
+        </td>
+
+    </tr>
+}
+        <tr>
+
+            <td colspan="2"><b>@Model.TodaysTrades.Count() positions</b></td>
+            
+            <td colspan="2">
+                <b> @Html.DisplayFor(modelItem => Model.TotalShareCount) shares  </b>
+            </td>
+            
+            <td> </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td> </td>
+            <td> </td>
+            <td class="number">
+                <span style="font-size:1.2em;font-weight:bold;color:@FinanceHelper.GetColor(Model.ClosedPnl)">  @Html.DisplayFor(modelItem => Model.ClosedPnl)</span>
+            </td>
+            <td class="number">
+              </td>
+           
+        </tr>
+    </table>
+</div>

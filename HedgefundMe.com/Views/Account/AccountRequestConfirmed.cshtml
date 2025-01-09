@@ -1,0 +1,77 @@
+﻿@model HedgefundMe.com.Models.AccountRequestModel
+
+@{
+    ViewBag.Title = "Account Request Confirmed";
+}
+<div class="container rounded" style="margin-bottom:10px;">
+    <div class="row" style="background-color: #1b2e48; ">
+        <div class="col-sm-12" style="color:white;">
+            <h2>Account Request Confirmed</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Thank you!</h3>
+            <strong>Thank you for requesting an account for HedgeFundMe.com.</strong>
+            <p>
+                We have received your request. The details of your request are below. Please double check all the details are correct to insure faster access to your account.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4> Account Request Details</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="control-group">
+                @Html.DisplayFor(model => model.UserName)<br />
+                <b>
+                    @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)
+                </b><br />
+                @Html.DisplayFor(model => model.Email)
+                <br />
+                @Html.DisplayFor(model => model.StreetAddress1)<br />
+                @{if(!string.IsNullOrEmpty(Model.StreetAddress2))
+                  {
+                       @Html.DisplayFor(model => model.StreetAddress2) <br />
+                  } 
+                } 
+                @Html.DisplayFor(model => model.City),
+                @Html.DisplayFor(model => model.State) @Html.DisplayFor(model => model.Zip)
+            </div>  
+             
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>What's next?</h3>
+            <p>
+                You will receive a welcome email with your new account details within 24 hours along with payment options and details.<br/>
+                <ul>
+                    <li>Be sure your spam filters allow emails form HedgeFundMe.com.</li>
+                    <li>Please print this page for your records.</li>
+                </ul>
+               
+                <em>Should you need further assitance please don't hesitate to contact us using the  @Html.ActionLink("contact form.", "Contact", "Home")</em><br /><br />
+
+            </p>
+          
+            <p>
+                <b>Here's to the start of your profitable @DateTime.Now.Year and beyond!</b>
+            </p>
+            <p>
+                Thank you for your interest in HedgeFundme.com and all the benefits membership will bring.
+
+            </p>
+            <p>
+                Sincerely,<br/>
+                Louis De Grazia<br/>
+                <em>Founder, HedgeFundMe.com</em>
+            </p>
+            <br />
+            <br />
+        </div>
+    </div> 
+</div>

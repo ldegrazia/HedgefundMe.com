@@ -1,0 +1,145 @@
+﻿@model HedgefundMe.com.Models.TradingSettings
+
+@{
+    ViewBag.Title = "Settings Details";
+}
+
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Trading Settings" alt="Trading Settings" src="@Url.Content("~/images/tools.png")" />
+            <h4>&nbsp;&nbsp;@Html.DisplayFor(model => model.Name)</h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <h4>Settings Overview</h4>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Enabled) 
+                @Html.DisplayFor(model => model.Enabled)
+            </div> 
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Rating)
+                @Html.DisplayFor(model => model.Rating)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.AvgReturn)
+
+                @Html.DisplayFor(model => model.AvgReturn)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Date)
+            
+                @Html.DisplayFor(model => model.Date)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.CreatedBy)
+          
+                @Html.DisplayFor(model => model.CreatedBy)
+            </div>
+            <h4>Market Data</h4>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.LastDataLoad)
+           
+                @Html.DisplayFor(model => model.LastDataLoad)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.MinimumShortVolume)
+            
+                @Html.DisplayFor(model => model.MinimumShortVolume)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.MinimumLongVolume)
+          
+                @Html.DisplayFor(model => model.MinimumLongVolume)
+            </div>
+            <h4>Trading Signals</h4>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.LastSignalRun)
+            
+                @Html.DisplayFor(model => model.LastSignalRun)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.GoodPriceChange)
+            
+                @Html.DisplayFor(model => model.GoodPriceChange)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.BadPriceChange)
+            
+                @Html.DisplayFor(model => model.BadPriceChange)
+            </div>
+            <h4>Account Settings</h4>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.DollarAmount)
+           
+                @Html.DisplayFor(model => model.DollarAmount)
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.CommissionCostPerShare) 
+                @Html.DisplayFor(model => model.CommissionCostPerShare)
+            </div>
+            
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.MaxBlotterValue)
+            
+                @Html.DisplayFor(model => model.MaxBlotterValue)
+            </div>
+            <h4>Trading Behavior</h4>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.TargetPriceChangeLong)
+            
+                @Html.DisplayFor(model => model.TargetPriceChangeLong)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.TargetPriceChangeShort)
+             
+                @Html.DisplayFor(model => model.TargetPriceChangeShort)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.SellStopChange)
+            
+                @Html.DisplayFor(model => model.SellStopChange)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.BuyStopChange)
+           
+                @Html.DisplayFor(model => model.BuyStopChange)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.ReEnterWinningTrades)
+            
+                @Html.DisplayFor(model => model.ReEnterWinningTrades)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.SameLosingTradeMaximum)
+            
+                @Html.DisplayFor(model => model.SameLosingTradeMaximum)
+            </div>
+
+          
+           
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) | 
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+
+ 
+</div>
+</div>
+</div>

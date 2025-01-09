@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+@if (!Request.IsAuthenticated)
+{
+     
+        
+           <a style="padding:2px;" href="/Account/LogOn" title="Log on"> <img class="img-responsive center-block" src="~/images/stock-market-icon.png" alt="Welcome" title="Welcome" /></a>
+   
+}
+else
+{
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Welcome" alt="Welcome" src="@Url.Content("~/images/welcome.png")" />
+                <h4>&nbsp;&nbsp;Welcome @User.Identity.Name</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" style="color:white;">
+           
+            </div>
+</div>
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <h2>Positions</h2>
+                    <hr />
+                    <h4><img class="pull-left smallimg" title="Blotter" alt="Blotter" src="@Url.Content("~/images/blotter.png")" /> @Html.ActionLink("Blotter", "Index", "Blotter", null, new { title = "The Blotter is the running list of live open trades." })</h4>
+                    <p>
+                        The Blotter is the running list of live open trades.
+                    </p> <br />
+
+                    <h4><img class="pull-left smallimg" title="Market Data" alt="Market Data" src="@Url.Content("~/images/chartts.png")" />@Html.ActionLink("Market Data", "Index", "MarketData", null, new { title = "View all market data." }) </h4>
+                    <p>
+                        View all market data.
+                    </p><br />
+                    <h4><img class="pull-left smallimg" title="Current Ranks" alt="Current Ranks" src="@Url.Content("~/images/star.png")" /> @Html.ActionLink("Current Ranks", "Ranks", "MarketData", null, new { title = "View today's longs and shorts." })</h4>
+                    <p>
+                        View today's longs and shorts.
+                    </p>
+                </div>
+                    <div class="col-md-4">
+                        <img style="margin-top:50px;" class="img-responsive center-block" src="~/images/stock-market-icon.png" alt="Welcome" title="Welcome" />
+
+                    </div>
+                <div class="col-md-4">
+                    <h2>Trading</h2>
+                    <hr />
+                    <h4><img class="pull-left smallimg" title="New Trade Signals" alt="New Trade Signals" src="@Url.Content("~/images/signals.png")" /> @Html.ActionLink("New Trade Signals", "Index", "TradeSignals", null, new { title = "View the latest new trade signals." }) </h4>
+                    <p>
+                        View the latest new trade signals.
+                    </p> <br />
+                    <h4><img class="pull-left smallimg" title="Trade Signal" alt="Trade Signal" src="@Url.Content("~/images/todaystrades.png")" />  @Html.ActionLink("Trade Signal History", "History", "TradeSignals", null, new { title = "View all trade signals acted on." })</h4>
+                    <p>
+                        View all trade signals acted on.
+                    </p>
+                    <br />
+
+                    <h4><img class="pull-left smallimg" title="Trade History" alt="Trade History" src="@Url.Content("~/images/history.png")" />  @Html.ActionLink("Trade History", "History", "Blotter", null, new { title = "View the running PnL of all trades we made and committed in the blotter." })</h4>
+                    <p>View the running PnL of all trades we made and committed in the blotter.</p>
+
+
+
+                </div>
+            </div>
+        </div>
+}

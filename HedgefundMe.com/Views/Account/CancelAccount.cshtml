@@ -1,0 +1,110 @@
+﻿@model HedgefundMe.com.Models.User
+@{
+    ViewBag.Title = "Cancel Account";
+}
+<div class="container rounded">
+    <div class="row" style="background-color: #1b2e48; ">
+        <div class="col-sm-12" style="color:white;">
+            <h2>Cancel Account</h2>
+        </div>
+    </div>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="row">
+            <div class="col-lg-12" style="padding:10px;">
+                <p>
+                    @ViewBag.ErrorMessage
+                </p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-sm-12">
+                <p>
+                    We hate to see you go!<br />
+                    If we can do something to keep you, please let @Html.ActionLink("us know.", "Contact", "Home")
+                    <br />
+                    Here is what you should know before you cancel:
+                    <ul>
+                        <li>Canceling your count effectively removes your access to the site.</li>
+                        <li>Your acount will be deleted.</li>
+                        <li>The delete request is logged and administrators are immediately notified.</li>
+                        <li>Should you decide to return, you will have to register again.</li>
+                        <li>
+                            <em>If you are still inside your first 30 days a full refund is issued to the account on file.</em>
+                        </li>
+                        <li>
+                            Refunds are prorated according to the amount of months left.<br/>
+                             For example if you are 15 days into your 3rd month, you
+                            will receive a refund for the remaining 2 months.
+                        </li>
+                        <li>You will be logged out after clicking Cancel.</li>
+                    </ul>
+                </p>
+                <p>
+                    Have questions? @Html.ActionLink("Contact us.", "Contact", "Home")
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+        @using (Html.BeginForm("CancelAccount", "Account", null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <h3>WARNING! CANCELLING IS A PERMANENT PROCESS AND CANNOT BE UNDONE</h3>
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.UserId)
+            <div class="control-group">
+                <label class="control-label" for="UserName">First Name:</label>
+
+                <div class="controls">
+                    @Html.DisplayFor(model => model.FirstName)
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="UserName">Last Name:</label>
+
+                <div class="controls">
+                    @Html.DisplayFor(model => model.LastName)
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="UserName">User Name:</label>
+
+                <div class="controls">
+                    @Html.DisplayFor(model => model.UserName)
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="UserName">Email:</label>
+
+                <div class="controls">
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="UserName">Photo:</label>
+
+                <div class="controls">
+                    @Html.DisplayFor(model => model.Photo)
+                </div>
+            </div>
+             <!-- Button -->
+                <div class="control-group">
+                    <label class="control-label" for="submit"> </label>
+                    <div class="controls">
+                        <button id="submit" name="submit" class="btn btn-danger">Delete</button>
+                         <a><input type="button" class="btn btn-primary" value="Cancel" onclick="location.href='@Url.Content("~/Home/Index")'" /></a>
+
+                    </div>
+                </div>
+                <br /> 
+        }
+    </div>
+            </div>
+    }
+ </div>

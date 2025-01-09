@@ -1,0 +1,12 @@
+﻿@using HedgefundMe.com.Models;
+@if(Request.IsAuthenticated) 
+{
+    <img src="@Url.Action("ProfileImage", "Account")" height="50" width="50" style="vertical-align:middle" alt="profile photo" /> 
+    @Html.ActionLink(User.Identity.Name, "MyAccount", "Account", routeValues: null, htmlAttributes: new { data_icon = "gear" })
+   <text> @Html.ActionLink("Log Off", "LogOff", "Account") </text>
+}
+else {
+    
+    @Html.ActionLink("Log In", "Logon", "Account", routeValues: null, htmlAttributes: new { data_icon = "gear" })  
+ <text> @Html.ActionLink("Register", "AccountRequest", "Account") </text>
+}

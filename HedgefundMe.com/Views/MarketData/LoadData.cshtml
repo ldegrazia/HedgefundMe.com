@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Load Data Result";
+}
+
+
+<h2>Completed Fetch</h2>
+<p>
+@Html.ActionLink("Home", "Index", "Home") | @Html.ActionLink("Ranks", "Ranks", "MarketData")
+</p>
+@Html.Raw(System.Web.HttpUtility.HtmlDecode(ViewBag.Result))

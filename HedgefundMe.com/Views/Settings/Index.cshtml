@@ -1,0 +1,172 @@
+﻿@model IEnumerable<HedgefundMe.com.Models.TradingSettings>
+
+@{
+    ViewBag.Title = "Settings";
+}
+
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Trading Settings" alt="Trading Settings" src="@Url.Content("~/images/settings1.png")" />
+            <h4>&nbsp;&nbsp;Trading Settings</h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12" style="color:white">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.AvgReturn)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Enabled)
+                        </th>
+
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(item.Name, "Details", new { id = item.ID })
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AvgReturn)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Enabled)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Trading Settings" alt="Trading Settings" src="@Url.Content("~/images/stoppedout.png")" />
+            <h4>&nbsp;&nbsp;Cancel Trades</h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12" style="color:white">
+            <br />
+            <p>
+                @Html.ActionLink("View Trades To Cancel", "Cancel", "Settings")
+            </p>
+
+        </div>
+    </div>
+</div>
+
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Portfolio Lists" alt="Portfolio Lists" src="@Url.Content("~/images/scans.png")" />
+            <h4>&nbsp;&nbsp;Portfolio Lists</h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12" style="color:white">
+            <p>
+                Portfolio Lists are kept on other sites.
+                The name and url to the lists are managed seperatedly.
+            </p>
+            <p>
+                @Html.ActionLink("Manage Portfolio Lists", "Portfolios", "Settings")
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container rounded">
+    <div class="row blue">
+        <div class="col-sm-12" style="color:white;">
+            <img class="pull-left smallimg" title="Trading Universe" alt="Trading Universe" src="@Url.Content("~/images/universe.png")" />
+            <h4>&nbsp;&nbsp;Trading Universe</h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12" style="color:white">
+            <br />
+
+            <p>
+                <h2><span class="result" style="background-color:yellow;">@ViewBag.Result</span></h2>
+            </p>
+            <p>
+                The stock file is used to determine the universe of stocks that are considered tradeable. Upload a new file as a csv, with just the tickers
+                in the first column.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12" style="color:white">
+            <p>
+                <a href="@Url.Action("GetFile", "Settings", new { @title = "Download current file" })">Download File</a>
+
+            </p>
+            <p>
+                <ul>
+                    <li>File needs to have one column for the ticker.</li>
+                    <li>The header, or first row, will be ignored.</li>
+                    <li>File must be a csv.</li>
+                    <li>File must be less than 500 KB in size.</li>
+                    <li>The file will be loaded on the next run.</li>
+
+                </ul>
+
+            </p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+            @using (Html.BeginForm("Index", "Settings", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary()
+                <div class="control-group">
+                    <label class="control-label" for="UserName">Update Stock File:</label>
+
+                    <div class="controls">
+                        <input type="file" name="file" id="file" />
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="control-group">
+                    <label class="control-label" for="submit"> </label>
+                    <div class="controls">
+                        <button id="submit" name="submit" class="btn btn-primary">Upload New File</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="color:white">
+            <p><br /></p>
+        </div>
+    </div>
+</div>

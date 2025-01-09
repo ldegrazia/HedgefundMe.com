@@ -1,0 +1,81 @@
+﻿@model IEnumerable<HedgefundMe.com.Models.TradeSignalHistory>
+@using HedgefundMe.com
+@foreach (var item in Model)
+{
+    <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.TradeId)</td>
+            <td>@Html.DisplayFor(model => item.TradeId)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Ticker) </td>
+            <td>@Html.DisplayFor(model => item.Ticker)</td>
+        </tr>
+        <tr style="color:@FinanceHelper.GetColor(item.Details) !important">
+            <td>@Html.DisplayNameFor(model => model.Action) </td>
+            <td>@Html.DisplayFor(model => item.Action)</td>
+        </tr>
+        <tr style="color:@FinanceHelper.GetColor(item.Details) !important">
+            <td>@Html.DisplayNameFor(model => model.Price) </td>
+            <td>@Html.DisplayFor(model => item.Price)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Date) </td>
+            <td>@item.EasterTimeDate() </td>
+        </tr>
+        <tr style="color:@FinanceHelper.GetColor(item.Details) !important">
+            <td>@Html.DisplayNameFor(model => model.StopPrice) </td>
+            <td>@Html.DisplayFor(model => item.StopPrice)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.TargetPrice) </td>
+            <td>@Html.DisplayFor(model => item.TargetPrice)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Shares) </td>
+            <td>@Html.DisplayFor(model => item.Shares)</td>
+        </tr>
+        <tr style="color:@FinanceHelper.GetColor(item.Details) !important">
+            <td>@Html.DisplayNameFor(model => model.Value) </td>
+            <td>@Html.DisplayFor(model => item.Value)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Details) </td>
+            <td>@Html.DisplayFor(model => item.Details)</td>
+        </tr>
+
+
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Strategy)</td>
+            <td>@Html.DisplayFor(model => item.Strategy)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.TradingSettings)</td>
+            <td>@Html.DisplayFor(model => item.TradingSettings)</td>
+        </tr>
+
+
+
+    </table>
+        </div>
+    <hr />
+        
+}        
+                    
+               
+                   
+                
+                   
+                
+                   
+               
+                    
+                
+                    
+                
+                   
+                 
+
+       

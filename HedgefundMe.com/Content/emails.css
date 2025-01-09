@@ -1,0 +1,36 @@
+﻿body {margin:0;
+}
+a {
+  color: #428bca;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.main {margin:0;font-family:'Droid Sans','Helvetica Neue','Helvetica','Arial','sans-serif';font-size: 14px;
+line-height: 1.42857143;color: #888888;} 
+.banner {background-color: #fff; border-bottom: solid 1px #5C87B2;padding:6px;}
+.banner img { width:200px;height:45px;}
+.heading {border-bottom: solid 1px #ccc;padding:14px;color:#ccc;font-size:x-large;background-color: #1b2e48;}
+.date {font-size:small;}
+.pick_container {width:100%; border-bottom: solid 1px #ccc;font-size:large;padding:14px;}
+.alt {background-color:#eee;}
+.pick_action { float:left;}
+.pick_ticker {color:#269FE2;float:left;text-align:left;}
+.pick_details {font-size:small;padding-top:4px;}
+.clear {clear:both;}
+.Buy, .Short {color:#70E373;}
+.Sell, .Stop, .Liquidate, .Cover {color:#FF111D;}
+.closing {padding:24px;font-size:large;color:#aaa}
+.footer {background-color: #1b2e48;color:#aaa; border-top: solid 1px #5C87B2;padding:24px;}
+.fineprint {font-size:small;padding-top:14px;color:#aaa}
+.copyright {font-size:medium;color:white;padding-top:24px;padding-bottom:24px;}

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "API Index";
+}
+
+<div class="container rounded">
+    <div class="row blue" >
+        <div class="col-sm-12">
+            <h3>
+                <img  title="API Calls" alt="API Calls" src="@Url.Content("~/images/qubert.png")" />
+               API Directory 
+            </h3>
+
+        </div>
+    </div>
+    <div class="row white">
+        <p>
+            The following details list the url and details for pulling trade signal and ranking data.
+        </p>
+    </div>
+    <div class="row white">
+        <div class="col-sm-12">
+            <ul>
+                @*<li>@Html.ActionLink("Api/Positions", "Positions") - will return an XML payload of all the current Long stocks and thier side, with full position and trade details.</li>*@
+                @*<li>@Html.ActionLink("Api/Position?ticker=ticker", "Position", "Api",null, new {ticker= ""}) - will return an XML payload of the latest position details.</li>*@
+                <li>@Html.ActionLink("Api/LatestTrades", "LatestTrades", "Api") - will return an XML payload of the latest Long trades.</li>
+                <li>@Html.ActionLink("Api/LatestShortTrades", "LatestShortTrades", "Api") - will return an XML payload of the latest Short trades.</li> 
+                <li>@Html.ActionLink("Api/Universe", "Universe", "Api") - will return an XML payload of the universe.</li>
+               
+            </ul>
+          
+
+        </div>
+    </div>
+    
+    <div class="row white">
+        <div class="col-sm-12">
+            <br />
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <br />
+        </div>
+    </div>
+</div>
+
